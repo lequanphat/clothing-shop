@@ -1,25 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import Home from './pages/Home'
-import Navbar from './components/Navbar';
-
-
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar/>
-        <div className='pages'>
-        <Routes>
-          <Route
-            path='/'
-            element={<Home/>}
-          />
-        </Routes>
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routes from './routes/index';
+import DefaultLayout from './components/Layouts/DefaultLayout';
+export default function App() {
+    return (
+        <div className="bg-blue">
+                <BrowserRouter>
+                    <Routes>
+                        {routes.map((route, index) => {
+                            let Page = route.page;
+                            let Layout = route?.layout ? route.layout : DefaultLayout;
+                            return <Route path={route.path} element={<Layout><Page /></Layout>} key={index}/>;
+                        })}
+                    </Routes>
+                </BrowserRouter>
         </div>
-      </BrowserRouter>
-    </div>
-  );
+    );
 }
-
-export default App;
