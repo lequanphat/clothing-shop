@@ -4,7 +4,9 @@ function DefaultLayout({children}) {
     return ( 
     <div>
         <Header/>
-        {children}
+        <div className="w-[80%] mx-auto  ">
+            {children}
+        </div>
     </div> 
     );
 }
