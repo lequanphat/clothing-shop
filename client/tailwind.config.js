@@ -1,9 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin');
-export default {
+import plugin from 'tailwindcss/plugin'
+const config =  {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
-        extend: {},
+        extend: {
+            keyframes: {
+                grow: {
+                    '0%': { width: '0%' },
+                    '50%': { width: '35%' },
+                    '100%': { width: '70%' },
+                },
+            },
+        },
         spacing: {
             1: '8px',
             2: '12px',
@@ -14,14 +22,11 @@ export default {
             '35px': '35px',
         },
         colors: {
-            // Configure your color palette here
             primary: '#333',
         },
         screens: {
             tablet: '740px',
-
             laptop: '1024px',
-
             desktop: '1280px',
         },
     },
@@ -36,3 +41,4 @@ export default {
     ],
     darkMode: 'class',
 };
+export default config;

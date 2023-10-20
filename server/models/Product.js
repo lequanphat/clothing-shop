@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
-const workoutSchema = mongoose.Schema({
-    title: {
+const productSchema = mongoose.Schema({
+    name: {
         type: String,
         required: true,
     },
-    reps: {
-        type: Number,
+    desc: {
+        type: String,
         required: true,
     },
-    load: {
+    price: {
         type: Number,
         required: true,
     }
 }, { timestamps: true })
 
 
-export default mongoose.model('Workout', workoutSchema)
+export default mongoose.model('products', productSchema)
