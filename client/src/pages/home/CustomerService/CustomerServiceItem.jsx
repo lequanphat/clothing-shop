@@ -7,7 +7,7 @@ function CustomerServiceItem({ title, desc, icon}) {
                     <img className="w-[100%] h-[100%]" src={url} alt="img" />
                 </div>
                 <div>
-                    <h1 className="text-[1.7rem] font-medium">{title}</h1>
+                    <h1 className="text-[1.7rem] font-medium uppercase">{title}</h1>
                     <p className="text-[1.6rem]">{desc}</p>
                 </div>
             </div>

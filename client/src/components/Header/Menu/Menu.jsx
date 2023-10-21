@@ -2,11 +2,11 @@ import MenuItem from './MenuItem';
 function Menu() {
     return (
         <ul className="flex h-auto">
-            <MenuItem to="/" content="HOME"/>
-            <MenuItem to="/products" content="PRODUCTS"/>
-            <MenuItem to="/orders" content="ORDERS"/>
-            <MenuItem to="/" content="BLOG"/>
-            <MenuItem to="/" content="CONTACT"/>
+            <MenuItem to="/" content="trang chủ"/>
+            <MenuItem to="/products" content="sản phẩm"/>
+            <MenuItem to="/orders" content="giỏ hàng"/>
+            <MenuItem to="/" content="bài viết"/>
+            <MenuItem to="/" content="liên hệ"/>
         </ul>
     );
 }

@@ -5,7 +5,7 @@ function BelowHeader() {
     return ( 
         <div className="bg-[white]   shadow-md">
                 <div className="w-[85%] h-[74px] mx-auto flex justify-between items-center">
-                    <h1 className="text-[22px] font-bold">COLOSHOP</h1>
+                    <h1 className="text-[22px] font-bold">E-FOSSHOP</h1>
                     <Menu/>
                     <ul className="flex h-auto">
                         <li>

@@ -14,7 +14,7 @@ function BlogItem({title,desc, time, comments, image}) {
                 <span className='opacity-[0.6]'>{comments}</span>
             </p>
         </div>
-        <h1 className='text-[2.4rem] font-medium mb-[16px]'>{title}</h1>
+        <h1 className='text-[2.4rem] font-medium mb-[16px] capitalize'>{title}</h1>
         <p className='text-[1.6rem] opacity-[0.8]'> {desc}</p>
     </div> );
 }

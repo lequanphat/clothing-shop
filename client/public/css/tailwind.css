@@ -672,11 +672,6 @@ h3{
   margin-right: auto;
 }
 
-.my-\[40px\]{
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
 .mb-\[10px\]{
   margin-bottom: 10px;
 }
@@ -1275,6 +1270,10 @@ h3{
   font-size: 4.2rem;
 }
 
+.text-\[3\.0rem\]{
+  font-size: 3.0rem;
+}
+
 .font-\[600\]{
   font-weight: 600;
 }
@@ -1289,6 +1288,10 @@ h3{
 
 .uppercase{
   text-transform: uppercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
 }
 
 .italic{

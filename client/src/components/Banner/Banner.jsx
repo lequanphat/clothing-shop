@@ -3,15 +3,15 @@ import BannerItem from "./BannerItem";
 const images = [
     {
         image: 'banner1.webp',
-        content: 'Men\'s'
+        content: 'Nam'
     },
     {
         image: 'banner2.webp',
-        content: 'Women\'s'
+        content: 'Nữ'
     },
     {
         image: 'banner3.webp',
-        content: 'Kid\'s'
+        content: 'Trẻ em'
     },
 ]
 function Banner() {

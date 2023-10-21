@@ -5,38 +5,38 @@ import FromTheBlog from './FromTheBlog/FromTheBlog';
 import BestSeller from './bestseller/BestSeller';
 const products = [
     {
-        name: 'Pura Paneapple',
-        category: 'COAT',
+        name: 'Áo len thời trang',
+        category: 'ÁO KHOÁC',
         price: '12.00',
         image: 'women1.webp',
     },
     {
-        name: 'Pura Paneapple',
-        category: 'COAT',
+        name: 'Áo len xám',
+        category: 'ÁO KHOÁC',
         price: '26.00',
         image: 'women2.webp',
     },
     {
-        name: 'Pura Paneapple',
-        category: 'COAT',
+        name: 'Áo len cổ lưới hồng',
+        category: 'ÁO KHOÁC',
         price: '13.00',
         image: 'women3.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'TÚI XÁCH',
         price: '13.00',
         image: 'women4.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'ÁO KHOÁC',
         price: '13.00',
         image: 'women1.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'ÁO KHOÁC',
         price: '13.00',
         image: 'women2.webp',
     },
@@ -44,25 +44,25 @@ const products = [
 const products_men = [
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'GIÀY',
         price: '13.00',
         image: 'men1.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'ÁO KHOÁC',
         price: '21.00',
         image: 'men2.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'ÁO KHOÁC',
         price: '18.00',
         image: 'men3.webp',
     },
     {
         name: 'Pura Paneapple',
-        category: 'COAT',
+        category: 'BALO',
         price: '13.00',
         image: 'men4.webp',
     },
