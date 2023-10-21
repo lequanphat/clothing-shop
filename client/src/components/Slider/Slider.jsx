@@ -3,6 +3,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import PointItem from './Control/PointItem';
 import SlideItem from './SlideItem';
 import { useEffect,  useState } from 'react';
+import Button from '../Button/Button';
 const images = ['slide1.webp', 'slide2.webp', 'slide3.webp', 'slide4.webp', 'slide5.webp'];
 function Slider() {
     const [index, setIndex] = useState(0);
@@ -40,9 +41,7 @@ function Slider() {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore
                 </p>
-                <button className="bg-[#F79F1F] text-[white] font-medium text-[1.6rem] py-[8px] px-[24px] rounded-[2px] mt-[30px] ">
-                    SHOP NOW
-                </button>
+                <Button/>
             </div>
             {/* <div className="absolute top-[30%] right-[12%] w-[140px] h-[140px] bg-[#F79F1F] rounded-full p-[6px]">
                 <div className="border-dashed border-[white] border-[2px] rounded-full w-[100%] h-[100%]">

@@ -1,6 +1,6 @@
 import BestSellerSlider from './slider/BestSellerSlider';
 
-function BestSeller({ reverse, title,slideTitle, image }) {
+function BestSeller({ reverse, title,slideTitle, image, products }) {
     let styles;
     let url = '/images/' + image;
     if (reverse) {
@@ -17,7 +17,7 @@ function BestSeller({ reverse, title,slideTitle, image }) {
                 </div>
                 <img className="w-[100%] h-[100%] bg-[#efefef]" src={url} alt="img"></img>
             </div>
-            <BestSellerSlider slideTitle={slideTitle} />
+            <BestSellerSlider slideTitle={slideTitle} products={products} />
         </div>
     );
 }

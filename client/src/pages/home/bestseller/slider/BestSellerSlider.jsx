@@ -3,45 +3,8 @@ import ControlItem from '../../../../components/Slider/Control/ControlItem';
 import PointItem from '../../../../components/Slider/Control/PointItem';
 import BestSellerSliderItem from './BestSellerSliderItem';
 import { useState } from 'react';
-const products = [
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women1.webp',
-    },
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women2.webp',
-    },
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women1.webp',
-    },
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women2.webp',
-    },
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women1.webp',
-    },
-    {
-        name: 'Pura Paneapple',
-        category: 'COAT',
-        price: '13.00',
-        image: 'women2.webp',
-    },
-];
-function BestSellerSlider({slideTitle}) {
+
+function BestSellerSlider({slideTitle, products}) {
     const [page, setPage] = useState(0);
     const nextSlide = () => {
         if(page+1 >= products.length-2){
