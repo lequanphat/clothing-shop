@@ -1,4 +1,5 @@
 import Banner from '../../components/Banner/Banner'
+import CustomerService from './CustomerService/CustomerService';
 import DealOfWeek from './DealOfWeek/DealOfWeek';
 import BestSeller from './bestseller/BestSeller';
 const products = [
@@ -84,6 +85,7 @@ const HomePage = () => {
             <BestSeller image="bestsellerforwomen.webp" title="Women's" slideTitle="BestSeller for Women" products={products}/>
             <DealOfWeek/>
             <BestSeller image="bestsellerformen.webp"  reverse title="Men's"  slideTitle="BestSeller for Men" products={products_men}/>
+            <CustomerService/>
         </div>
     )
 };
