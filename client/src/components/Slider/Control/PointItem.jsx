@@ -1,20 +1,22 @@
 
-function PointItem({total, index}) {
+function PointItem({total, index, ...props}) {
     const render = () => {
-        console.log(total);
         const items= []
         for(let i=0;i<total;i++){
             if(i===index){
-                items.push(<li key={i} className="w-[20px] h-[10px] bg-primary rounded-full mx-[12px] transition-all"></li>);
+                items.push(<li key={i} className="w-[20px] h-[10px] bg-[#7f8c8d] rounded-full mx-[12px] transition-all"></li>);
             }else{
-                items.push(<li key={i} className="w-[10px] h-[10px] bg-primary rounded-full mx-[12px] transition-all"></li>);
+                items.push(<li key={i} className="w-[10px] h-[10px] bg-[#7f8c8d] rounded-full mx-[12px] transition-all"></li>);
             }
             
         }
         return items;
     }
+    const styles = {
+        ...props
+    }
     return (
-        <ul className="absolute bottom-[2%] left-[50%] translate-x-[-50%]  flex">
+        <ul style={styles} className="flex">
         {render()}
         </ul>
     );

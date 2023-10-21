@@ -6,7 +6,7 @@ function DefaultLayout({children}) {
     <div>
         <Header/>
         <Slider></Slider>
-        <div className="w-[80%] mx-auto  ">
+        <div className="w-[85%] mx-auto  ">
             {children}
         </div>
     </div> 

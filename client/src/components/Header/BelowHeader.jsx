@@ -4,7 +4,7 @@ import Menu from './Menu/Menu'
 function BelowHeader() {
     return ( 
         <div className="bg-[white]   shadow-md">
-                <div className="w-[80%] h-[74px] mx-auto flex justify-between items-center">
+                <div className="w-[85%] h-[74px] mx-auto flex justify-between items-center">
                     <h1 className="text-[22px] font-bold">COLOSHOP</h1>
                     <Menu/>
                     <ul className="flex h-auto">

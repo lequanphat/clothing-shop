@@ -1,7 +1,7 @@
 function AboveHeader() {
     return (
         <div className="bg-[black]">
-            <div className="w-[80%] mx-auto flex justify-between align-middle h-[30px]">
+            <div className="w-[85%] mx-auto flex justify-between align-middle h-[30px]">
                 <h2 className="text-[#ccc] text-[12px] align-middle leading-[30px]">FREE SHIPPING ON ALL US ORDERS OVER $50</h2>
                 <ul className="flex align-middle justify-end ">
                     <li className="border-r-[1px] border-[#7f8c8d]">
