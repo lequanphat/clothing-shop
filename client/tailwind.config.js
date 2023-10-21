@@ -22,7 +22,7 @@ const config =  {
             '35px': '35px',
         },
         colors: {
-            primary: '#333',
+            primary: '#f3c60f',
         },
         screens: {
             tablet: '740px',

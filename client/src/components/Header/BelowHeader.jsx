@@ -33,7 +33,7 @@ function BelowHeader() {
                                 href="/"
                             >
                                 <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
-                                <span className='absolute top-[-2px] right-[-3px] block bg-[#FFC312] w-[18px] h-[18px] 
+                                <span className='absolute top-[-2px] right-[-3px] block bg-primary w-[18px] h-[18px] 
                                 rounded-full leading-[18px] text-center text-[white] text-[1.2rem]'>1</span>
                             </a>
                         </li>

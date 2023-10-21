@@ -6,12 +6,12 @@ function DealOfWeek() {
         <div className="flex bg-[#f4f1e9] p-[50px] ">
             <div className="flex flex-col items-center flex-1 justify-start">
                 <h1 className="text-[3.2rem] mb-[10px]">Deal Of The Week</h1>
-                <div className="w-[80px] border-[2px] border-[#e7ab3c] mb-[28px]"></div>
+                <div className="w-[80px] border-[2px] border-primary mb-[28px]"></div>
                 <p className="text-[1.8rem] w-[90%] opacity-[0.6] text-center mb-[18px]">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, seddo ipsum dolor sit amet, consectetur
                     adipisicing elit
                 </p>
-                <h1 className="text-[2.6rem] font-medium text-[#e7ab3c] mb-[42px]">$35.00</h1>
+                <h1 className="text-[2.6rem] font-medium text-primary mb-[42px]">$35.00</h1>
                 <div className="grid grid-cols-4 gap-[30px] mb-[10px]">
                     
                     <TimeItem value={30} unit="DAYS"/>
