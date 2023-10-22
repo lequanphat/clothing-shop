@@ -5,6 +5,14 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    image:{
+        type: String,
+        required: true,
+    },
+    quantity: {
+        type: Number,
+        required: true,
+    },
     desc: {
         type: String,
         required: true,
@@ -16,4 +24,4 @@ const productSchema = mongoose.Schema({
 }, { timestamps: true })
 
 
-export default mongoose.model('products', productSchema)
+export default mongoose.model('product', productSchema)
