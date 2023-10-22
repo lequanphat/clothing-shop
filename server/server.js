@@ -7,14 +7,7 @@ import usersRouter from './routes/users.js'
 const app = express()
 dotenv.config()
 app.use(json())
-// 
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // hoặc '*'
-//     res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-//   });
-// middewares
+
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next()
