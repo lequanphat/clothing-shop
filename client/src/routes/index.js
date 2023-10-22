@@ -1,4 +1,5 @@
 import NullLayout from '../components/Layouts/NullLayout';
+import OtherLayout from '../components/Layouts/OtherLayout';
 import HomePage from '../pages/home/HomePage';
 import NotFoundPage from '../pages/notfound/NotFoundPage';
 import OrderPage from '../pages/orders/OrderPage';
@@ -12,6 +13,8 @@ const routes = [
     {
         path: '/products',
         page: ProductPage,
+        layout: OtherLayout,
+    
     },
     {
         path: '/orders',

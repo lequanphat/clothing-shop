@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping,  faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping,  faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 import Menu from './Menu/Menu'
 function BelowHeader() {
     return ( 
@@ -23,7 +24,7 @@ function BelowHeader() {
                         leading-[32px] rounded-[999px] hover:bg-[#ecf0f1] ml-[12px]"
                                 href="/"
                             >
-                                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faBell}></FontAwesomeIcon>
                             </a>
                         </li>
                         <li>

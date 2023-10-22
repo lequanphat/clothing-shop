@@ -11,7 +11,7 @@ function DealOfWeek() {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, seddo ipsum dolor sit amet, consectetur
                     adipisicing elit
                 </p>
-                <h1 className="text-[2.6rem] font-medium text-primary mb-[42px]">$35.00</h1>
+                <h1 className="text-[2.6rem] font-medium text-primary mb-[42px]">235.000đ</h1>
                 <div className="grid grid-cols-4 gap-[30px] mb-[10px]">
                     
                     <TimeItem value={30} unit="DAYS"/>

@@ -7,19 +7,19 @@ const products = [
     {
         name: 'Áo len thời trang',
         category: 'ÁO KHOÁC',
-        price: '12.00',
+        price: '180.000',
         image: 'women1.webp',
     },
     {
         name: 'Áo len xám',
         category: 'ÁO KHOÁC',
-        price: '26.00',
+        price: '220.000đ',
         image: 'women2.webp',
     },
     {
         name: 'Áo len cổ lưới hồng',
         category: 'ÁO KHOÁC',
-        price: '13.00',
+        price: '345.000',
         image: 'women3.webp',
     },
     {
@@ -45,19 +45,19 @@ const products_men = [
     {
         name: 'Pura Paneapple',
         category: 'GIÀY',
-        price: '13.00',
+        price: '160.000',
         image: 'men1.webp',
     },
     {
         name: 'Pura Paneapple',
         category: 'ÁO KHOÁC',
-        price: '21.00',
+        price: '220.000',
         image: 'men2.webp',
     },
     {
         name: 'Pura Paneapple',
         category: 'ÁO KHOÁC',
-        price: '18.00',
+        price: '320.000',
         image: 'men3.webp',
     },
     {
