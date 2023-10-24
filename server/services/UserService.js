@@ -18,89 +18,63 @@ class UserService {
                     status: 'OK',
                     message: 'User is created',
                     data: user,
-                };
+                }; 
             }
         } catch (e) {
             return {e};
         }
     };
-    getUser = (data) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const user = await User.findOne(data);
-                if (user) {
-                    resolve({
-                        status: 'OK',
-                        message: 'User is available',
-                        data: user,
-                    });
-                } else {
-                    resolve({
-                        status: 'ERROR',
-                        message: 'User is not available',
-                        data: user,
-                    });
-                }
-            } catch (e) {
-                resolve({
-                    status: 'ERROR',
-                    message: 'User is not available',
-                    data: null,
-                });
+    getUser = async(data) => {
+        try {
+            const user = await User.findOne(data);
+            if (user) {
+                return {
+                    status: 'OK',
+                    message: 'User is available',
+                    data: user,
+                };
+            } else {
+                return new Error('User is not available')
             }
-        });
+        } catch (e) {
+            return new Error('Error in get user '+JSON.stringify(e))
+        }
     };
-    updateUser = (id, data) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const updateUser = await User.findByIdAndUpdate(id, data, { new: true });
-                if (updateUser) {
-                    resolve({
-                        status: 'OK',
-                        message: 'User is available',
-                        data: updateUser,
-                    });
-                } else {
-                    resolve({
-                        status: 'ERROR',
-                        message: 'User is not available',
-                        data: updateUser,
-                    });
-                }
-            } catch (e) {
-                resolve({
-                    status: 'ERROR',
-                    message: 'User is not available',
-                    data: null,
-                });
+    checkExistedUser = async(data) => {
+        const user = await User.exists(data);
+        return user;
+    }
+    updateUser = async(id, data) => {
+        try {
+            const updateUser = await User.findByIdAndUpdate(id, data, { new: true });
+            if (updateUser) {
+                return {
+                    status: 'OK',
+                    message: 'User is available',
+                    data: updateUser,
+                };
+            } else {
+                return new Error('User is not exists')
             }
-        });
+        } catch (e) {
+            return new Error('Error in update user '+JSON.stringify(e))
+        }
     };
-    deleteUser = (id) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const deleteUser = await User.findByIdAndDelete({ _id: id });
-                if (deleteUser) {
-                    resolve({
-                        status: 'OK',
-                        message: 'User is deleted',
-                        data: deleteUser,
-                    });
-                } else {
-                    resolve({
-                        status: 'ERROR',
-                        message: 'User is not available',
-                        data: deleteUser,
-                    });
-                }
-            } catch (e) {
-                resolve({
-                    status: 'ERROR',
-                    message: 'User is not available',
-                    data: null,
-                });
+    deleteUser = async (id) => {
+        try {
+            const deleteUser = await User.findByIdAndDelete({ _id: id });
+            if (deleteUser) {
+                return {
+                    status: 'OK',
+                    message: 'User is deleted',
+                    data: deleteUser,
+                };
+            } else {
+                return new Error('User is not exists')
             }
-        });
+        } catch (e) {
+            return new Error('Error in delete user: '+JSON.stringify(e))
+        }
     };
     login = async (data) => {
         const { email, password } = data;
@@ -126,16 +100,10 @@ class UserService {
                     },
                 };
             } else {
-                return {
-                    status: 'ERROR',
-                    message: 'Password is incorrect',
-                };
+                return new Error('Password is incorrect')
             }
         } else {
-            return {
-                status: 'ERROR',
-                message: 'Account is not available',
-            };
+            return new Error('Account is not exists')
         }
     };
 }
