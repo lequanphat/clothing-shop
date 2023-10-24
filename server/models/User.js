@@ -24,9 +24,11 @@ const userSchema = mongoose.Schema({
     },
     access_token: {
         type: String,
+        default: '',
     },
     refresh_token: {
         type: String,
+        default: '',
     }
 }, { timestamps: true })
 

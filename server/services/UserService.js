@@ -1,6 +1,6 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import JWTService from './JWTService.js';
 class UserService {
     createUser = async (newUser) => {
         const { name, email, password, phone } = newUser;
@@ -78,26 +78,18 @@ class UserService {
     };
     login = async (data) => {
         const { email, password } = data;
-        const user = await User.findOne({ email: email });
+        let user = await User.findOne({ email: email });
         if (user) {
             const isMath = await bcrypt.compare(password, user.password);
             if (isMath) {
-                let token = jwt.sign(
-                    {
-                        data: user,
-                    },
-                    process.env.JWT_SECRET,
-                    {
-                        expiresIn: '3 days',
-                    },
-                );
+                let id = user._doc?._id;
+                let access_token = JWTService.signAccessToken({id}, '30m');
+                let refresh_token = JWTService.signRefreshToken({id}, '60m');
+               
+                user = await this.updateUser(user._doc?._id, {access_token, refresh_token})
                 return {
-                    status: 'OK',
-                    message: 'Login successfully',
-                    data: {
-                        ...user._doc,
-                        token,
-                    },
+                    state: "Login Successfully",
+                    data: user.data,
                 };
             } else {
                 return new Error('Password is incorrect')
