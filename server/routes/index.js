@@ -1,8 +1,7 @@
-import productsRouter from './products.js'
 import usersRouter from './users.js'
+import authRouter from './auth.js'
 const routes = (app) => {
-    app.use('/product', productsRouter)
+    app.use('/auth/', authRouter)
     app.use('/api/user', usersRouter)
-
 }
 export default routes

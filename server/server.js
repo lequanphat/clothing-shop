@@ -2,18 +2,18 @@ import express, { json } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import routes from './routes/index.js'
-
+import auth from './middlewares/auth.js'
+import errorHandler from './middlewares/error.js'
 // express app
 const app = express()
 dotenv.config()
+
+// middlewares
 app.use(json())
+app.use(auth.checkTokenUser)
 
-app.use((req, res, next) => {
-    console.log(req.path, req.method);
-    next()
-})
 routes(app)
-
+app.use(errorHandler)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

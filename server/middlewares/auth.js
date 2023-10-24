@@ -1,14 +1,11 @@
 import jwt from 'jsonwebtoken';
 class auth {
-    checkToken(req, res, next) {
+    checkTokenUser(req, res, next) {
         if (
-            req.url.toLowerCase().trim() == '/login'.toLowerCase().trim() ||
-            req.url.toLowerCase().trim() == '/users/login'.toLowerCase().trim() ||
-            req.url.toLowerCase().trim() == '/css/app.css' ||
-            req.url.toLowerCase().trim() == '/favicon.ico' ||
-            req.url.toLowerCase().trim() == '/'
+            req.url.toLowerCase().trim() == '/auth/login'.toLowerCase().trim() ||
+            req.url.toLowerCase().trim() == '/auth/register'.toLowerCase().trim() 
         ) {
-                console.log(req.url);
+            console.log(req.url);
             next();
             return;
         }
@@ -25,12 +22,14 @@ class auth {
             if (isExpired) {
                 throw new Error('Token had expired')
             }else{
+                console.log("next to ...");
                 next()
             }
         } catch (error) {
-            console.log(error.message);
-            res.redirect('/login');
+            console.log('auth'+error.message);
+            res.redirect('/auth/login');
         }
     }
+    
 }
 export default new auth();
