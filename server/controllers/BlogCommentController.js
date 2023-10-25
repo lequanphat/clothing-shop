@@ -41,7 +41,6 @@ class BlogCommentController {
         });
         const { error } = createCommentsSchema.validate({ content, author, blog }, { abortEarly: false });
         if (error) {
-            console.log(error);
             return next(error);
         }
         try {
@@ -56,7 +55,16 @@ class BlogCommentController {
         }
     }
     async update(req, res, next) {
-        res.send('update');
+        const { content, author, blog } = req.body;
+        const updateSchema = Joi.object({
+            content: Joi.string().required(),
+            author: Joi.string().regex(mongodbIdPattern).required(),
+            blog: Joi.string().regex(mongodbIdPattern).required(),
+        });
+        const { error } = createCommentsSchema.validate({ content, author, blog }, { abortEarly: false });
+        if (error) {
+            return next(error);
+        }
     }
     async delete(req, res, next) {
         res.send('delete');
