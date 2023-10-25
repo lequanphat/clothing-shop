@@ -29,7 +29,7 @@ function Slider() {
 
     console.log('slide render');
     return (
-        <div className="relative w-[100%] h-[400px] z-1 mt-[104px]">
+        <div className="relative w-[100%] h-[400px] z-1">
             <SlideItem value={images[index]} />
             <ControlItem icon={faChevronLeft} pos="left" click={preSlide} top="50%" position="absolute"/>
             <ControlItem icon={faChevronRight} pos="right" click={nextSlide} top="50%" position="absolute"/>

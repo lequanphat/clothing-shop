@@ -5,7 +5,7 @@ function Menu() {
             <MenuItem to="/" content="trang chủ"/>
             <MenuItem to="/products" content="sản phẩm"/>
             <MenuItem to="/orders" content="giỏ hàng"/>
-            <MenuItem to="/" content="bài viết"/>
+            <MenuItem to="/blogs" content="bài viết"/>
             <MenuItem to="/" content="liên hệ"/>
         </ul>
     );

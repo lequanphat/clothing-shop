@@ -6,9 +6,11 @@ function DefaultLayout({children}) {
     return ( 
     <div>
         <Header/>
-        <Slider></Slider>
-        <div className="w-[85%] mx-auto  ">
-            {children}
+        <div className="mt-[74px]">
+            <Slider></Slider>
+            <div className="w-[85%] mx-auto  ">
+                {children}
+            </div>
         </div>
         <Footer/>
     </div> 

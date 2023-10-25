@@ -5,7 +5,7 @@ function OtherLayout({children}) {
     return ( 
     <div>
         <Header/>
-        <div className="w-[85%] mx-auto  ">
+        <div className="w-[85%] mx-auto mt-[74px]">
             <PagePath/>
             {children}
         </div>
