@@ -1,12 +1,16 @@
 import jwt from 'jsonwebtoken';
 import JWTService from '../services/JWTService.js';
+import { BACKEND_SERVER_PATH } from '../config/index.js';
 class auth {
     checkTokenUser(req, res, next) {
         const ignoreUrls = [
             '/auth/login',
-            '/auth/register'
+            '/auth/register',
         ]
         if(ignoreUrls.includes(req.url.toLowerCase().trim())){ 
+            return next();
+        }
+        if(req.url.includes(BACKEND_SERVER_PATH+'/storage/')){
             return next();
         }
         console.log(req.url);

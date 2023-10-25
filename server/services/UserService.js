@@ -1,10 +1,11 @@
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import JWTService from './JWTService.js';
+import {HASH_PASSWORD_SECRET} from '../config/index.js'
 class UserService {
     createUser = async (newUser) => {
         const { name, email, password, phone } = newUser;
-        const hashedPassword = await bcrypt.hash(password, parseInt(process.env.HASH_PASSWORD_SECRET));
+        const hashedPassword = await bcrypt.hash(password, parseInt(HASH_PASSWORD_SECRET));
         console.log(hashedPassword);
         try {
             const user = await User.create({

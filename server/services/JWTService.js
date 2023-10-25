@@ -1,22 +1,21 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-
+import {ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET} from '../config/index.js'
 dotenv.config();
-const ACCESS_SECRET = process.env.ACCESS_TOKEN_SECRET;
-const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET;
+
 class JWTService {
-    static signAccessToken(payload, expiryTime, secret=ACCESS_SECRET) {
+    static signAccessToken(payload, expiryTime, secret=ACCESS_TOKEN_SECRET) {
         console.log(secret);
         return jwt.sign(payload, secret, { expiresIn: expiryTime });
     }
-    static signRefreshToken(payload, expiryTime, secret=REFRESH_SECRET) {
+    static signRefreshToken(payload, expiryTime, secret=REFRESH_TOKEN_SECRET) {
         console.log(secret);
         return jwt.sign(payload, secret, { expiresIn: expiryTime });
     }
-    static verifyAccessToken(token, secret=ACCESS_SECRET) {
+    static verifyAccessToken(token, secret=ACCESS_TOKEN_SECRET) {
         return jwt.verify(token, secret);
     }
-    static verifyRefreshToken(token, secret=REFRESH_SECRET) {
+    static verifyRefreshToken(token, secret=REFRESH_TOKEN_SECRET) {
         return jwt.verify(token, secret);
     }
 }
