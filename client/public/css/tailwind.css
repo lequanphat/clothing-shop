@@ -745,10 +745,6 @@ h3{
   margin-right: 8px;
 }
 
-.mt-\[104px\]{
-  margin-top: 104px;
-}
-
 .mt-\[12px\]{
   margin-top: 12px;
 }
@@ -773,12 +769,12 @@ h3{
   margin-top: 60px;
 }
 
-.mt-\[80px\]{
-  margin-top: 80px;
-}
-
 .mt-\[74px\]{
   margin-top: 74px;
+}
+
+.mt-\[80px\]{
+  margin-top: 80px;
 }
 
 .line-clamp-1{
@@ -840,6 +836,10 @@ h3{
   height: 240px;
 }
 
+.h-\[260px\]{
+  height: 260px;
+}
+
 .h-\[30px\]{
   height: 30px;
 }
@@ -864,10 +864,6 @@ h3{
   height: 40px;
 }
 
-.h-\[68\%\]{
-  height: 68%;
-}
-
 .h-\[70\%\]{
   height: 70%;
 }
@@ -878,18 +874,6 @@ h3{
 
 .h-auto{
   height: auto;
-}
-
-.h-\[300px\]{
-  height: 300px;
-}
-
-.h-\[100px\]{
-  height: 100px;
-}
-
-.h-\[260px\]{
-  height: 260px;
 }
 
 .w-\[0\%\]{
@@ -966,10 +950,6 @@ h3{
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-\[300px\]{
-  width: 300px;
 }
 
 .flex-1{

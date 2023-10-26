@@ -1,12 +1,13 @@
 import NullLayout from '../components/Layouts/NullLayout';
 import OtherLayout from '../components/Layouts/OtherLayout';
+import LoginPage from '../pages/auth/login';
 import BlogPage from '../pages/blogs/BlogPage';
 import HomePage from '../pages/home/HomePage';
-import NotFoundPage from '../pages/notfound/NotFoundPage';
+import NotFoundPage from '../pages/error/NotFoundPage';
 import OrderPage from '../pages/orders/OrderPage';
 import ProductPage from '../pages/products/ProductPage';
 
-const routes = [
+const publicRoutes = [
     {
         path: '/',
         page: HomePage,
@@ -15,11 +16,6 @@ const routes = [
         path: '/products',
         page: ProductPage,
         layout: OtherLayout,
-    
-    },
-    {
-        path: '/orders',
-        page: OrderPage,
     },
     {
         path: '/blogs',
@@ -27,10 +23,21 @@ const routes = [
         layout: OtherLayout,
     },
     {
+        path: '/login',
+        page: LoginPage,
+        layout: NullLayout,
+    },
+    {
         path: '*',
         page: NotFoundPage,
         layout: NullLayout,
     },
 ];
+const privateRoutes = [
+    {
+        path: '/orders',
+        page: OrderPage,
+    },
+];
 
-export default routes;
+export { publicRoutes, privateRoutes };
