@@ -11,15 +11,13 @@ const config =  {
                     '100%': { width: '70%' },
                 },
             },
+            boxShadow:{
+                medium: '#4cd137 0px 1px 0px',
+            }
+
         },
         spacing: {
-            1: '8px',
-            2: '12px',
-            3: '16px',
-            4: '24px',
-            5: '32px',
-            6: '48px',
-            '35px': '35px',
+            
         },
         colors: {
             primary: '#f3c60f',
