@@ -49,11 +49,7 @@ class UserService {
         try {
             const updateUser = await User.findByIdAndUpdate(id, data, { new: true });
             if (updateUser) {
-                return {
-                    status: 'OK',
-                    message: 'User is available',
-                    data: updateUser,
-                };
+                return updateUser;
             } else {
                 return new Error('User is not exists')
             }
@@ -88,10 +84,7 @@ class UserService {
                 let refresh_token = JWTService.signRefreshToken({id}, '60m');
                
                 user = await this.updateUser(user._doc?._id, {access_token, refresh_token})
-                return {
-                    state: "Login Successfully",
-                    data: user.data,
-                };
+                return user;
             } else {
                 return new Error('Password is incorrect')
             }

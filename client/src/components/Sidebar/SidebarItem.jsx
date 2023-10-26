@@ -6,8 +6,9 @@ function SidebarItem({title, items=[], checkbox}) {
             <ul>
             {items.map((item,index) => {
                 let idcheck = 'checkbrand' +index;
-                return <li key={index} className='text-[1.6rem] py-[6px] font-medium opacity-[0.8]'>{
-                    (checkbox)?<li className='flex items-center'><input className='mr-[8px] accent-primary text-[white]' id={idcheck} type='checkbox'/><label htmlFor={idcheck}>{item}</label></li>:<Link>{item}</Link>
+                return <li key={index} className='text-[1.6rem] py-[6px] font-medium opacity-[0.8]'>
+                {
+                    (checkbox)?<p className='flex items-center'><input className='mr-[8px] accent-primary text-[white]' id={idcheck} type='checkbox'/><label htmlFor={idcheck}>{item}</label></p>:<Link>{item}</Link>
                 }</li>
             })}
             </ul>

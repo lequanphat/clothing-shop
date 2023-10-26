@@ -5,11 +5,9 @@ dotenv.config();
 
 class JWTService {
     static signAccessToken(payload, expiryTime, secret=ACCESS_TOKEN_SECRET) {
-        console.log(secret);
         return jwt.sign(payload, secret, { expiresIn: expiryTime });
     }
     static signRefreshToken(payload, expiryTime, secret=REFRESH_TOKEN_SECRET) {
-        console.log(secret);
         return jwt.sign(payload, secret, { expiresIn: expiryTime });
     }
     static verifyAccessToken(token, secret=ACCESS_TOKEN_SECRET) {

@@ -3,6 +3,7 @@ import JWTService from '../services/JWTService.js';
 import { BACKEND_SERVER_PATH } from '../config/index.js';
 class auth {
     checkTokenUser(req, res, next) {
+        console.log(req.rawHeaders[1]+ ' -> '+ req.url);
         const ignoreUrls = [
             '/auth/login',
             '/auth/register',

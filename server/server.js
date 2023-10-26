@@ -1,4 +1,5 @@
 import express, { json } from 'express';
+import cors from 'cors'
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
@@ -11,8 +12,13 @@ const app = express();
 dotenv.config();
 
 // middlewares
+const corsOptions = {
+    credentials: true,
+    origin: ['http://localhost:3001']
+}
 app.use(json());
 app.use(cookieParser());
+app.use(cors(corsOptions))
 app.use(auth.checkTokenUser);
 
 routes(app);

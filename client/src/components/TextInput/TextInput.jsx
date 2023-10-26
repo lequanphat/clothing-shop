@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-function TextInput({ title, error, errormessage, changing, ...props }) {
+function TextInput({ title, error, errormessage, changing,  ...props }) {
     const textInputClasses = clsx(
-        'w-[100%] px-[12px] py-[8px] outline-none border-[1px]  rounded-[2px]  text-[1.6rem] ',
+        'w-[100%] px-[12px] py-[8px] outline-none border-[1px]  rounded-[2px]  text-[1.6rem] transition-all',
         {
             'border-[#4cd137] ': changing,
             'border-[black]': !changing,

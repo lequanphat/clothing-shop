@@ -18,8 +18,8 @@ class AuthController {
                 next(respone);
                 return;
             }
-            CookieService.saveCookie(res, 'accessToken', respone.data.access_token);
-            CookieService.saveCookie(res, 'refreshToken', respone.data.refresh_token);
+            CookieService.saveCookie(res, 'accessToken', respone.access_token);
+            CookieService.saveCookie(res, 'refreshToken', respone.refresh_token);
             return res.status(200).json(respone);
         } catch (e) {
             next(e);
