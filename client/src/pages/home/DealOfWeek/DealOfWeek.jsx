@@ -12,7 +12,7 @@ function DealOfWeek() {
                     adipisicing elit
                 </p>
                 <h1 className="text-[2.6rem] font-medium text-primary mb-[42px]">235.000đ</h1>
-                <div className="grid grid-cols-4 gap-[30px] mb-[10px]">
+                <div className="grid grid-cols-4 gap-[30px] mb-[24px]">
                     
                     <TimeItem value={30} unit="DAYS"/>
                     <TimeItem value={12} unit="HRS"/>
@@ -20,7 +20,7 @@ function DealOfWeek() {
                     <TimeItem value={12} unit="SECS"/>
                     
                 </div>
-                <Button/>
+                <Button content="xem ngay"/>
             </div>
             <div className="flex-1 flex items-center justify-center"><img className="w-[400px] h-[400px]" src="/images/men4.webp" alt="img" /></div>
         </div>

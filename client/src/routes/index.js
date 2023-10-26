@@ -1,6 +1,6 @@
 import NullLayout from '../components/Layouts/NullLayout';
 import OtherLayout from '../components/Layouts/OtherLayout';
-import LoginPage from '../pages/auth/login';
+import LoginPage from '../pages/auth/LoginPage';
 import BlogPage from '../pages/blogs/BlogPage';
 import HomePage from '../pages/home/HomePage';
 import NotFoundPage from '../pages/error/NotFoundPage';
