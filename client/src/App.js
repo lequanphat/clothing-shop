@@ -1,8 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+
+//
 import {publicRoutes, privateRoutes} from './routes/index';
 import DefaultLayout from './components/Layouts/DefaultLayout';
 import Protected from './components/Protected/Protected';
+
 export default function App() {
+    const isAuth = useSelector(state => state.user.auth);
     return (
         <div className="bg-blue">
                 <BrowserRouter>
@@ -15,7 +20,7 @@ export default function App() {
                         {privateRoutes.map((route, index) => {
                             let Page = route.page;
                             let Layout = route?.layout ? route.layout : DefaultLayout;
-                            return <Route path={route.path} element={<Protected isAuth={false}><Layout><Page /></Layout></Protected>} key={index}/>;
+                            return <Route path={route.path} element={<Protected isAuth={isAuth}><Layout><Page /></Layout></Protected>} key={index}/>;
                         })}
                     </Routes>
                 </BrowserRouter>

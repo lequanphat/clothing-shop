@@ -15,11 +15,7 @@ class UserService {
                 phone,
             });
             if (user) {
-                return {
-                    status: 'OK',
-                    message: 'User is created',
-                    data: user,
-                }; 
+                return user; 
             }
         } catch (e) {
             return {e};

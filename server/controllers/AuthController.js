@@ -42,7 +42,7 @@ class AuthController {
                 return next(new Error('email is already registered'));
             }
             const respone = await UserService.createUser(req.body);
-            return res.status(200).json({ validation, respone });
+            return res.status(200).json(respone);
         } catch (e) {
             next(e);
         }

@@ -2,24 +2,25 @@ import { useFormik } from 'formik';
 import Button from '../../components/Button/Button';
 import TextInput from '../../components/TextInput/TextInput';
 import loginSchema from '../../schemas/loginSchema';
-import { useState } from 'react';
+import { useState, useImperativeHandle , forwardRef } from 'react';
 import { login } from '../../api/internal';
 import { setUser } from '../../store/userSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-function LoginWrapper() {
+import Wrapper from './Wrapper';
+const LoginWrapper = forwardRef( ( props, ref) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [emailChanging, setEmailChanging] = useState(false);
     const [passwordChanging, setPasswordChanging] = useState(false);
-    const { values, handleBlur, handleChange, errors, } = useFormik({
+    const { values, handleBlur, handleChange, errors } = useFormik({
         initialValues: {
             email: '',
             password: '',
         },
-        initialErrors:{
+        initialErrors: {
             email: 'Vui lòng điền trường này',
             password: 'Vui lòng điền trường này',
         },
@@ -27,12 +28,12 @@ function LoginWrapper() {
     });
     const handleLogin = async () => {
         // validate
-        if(errors.password || errors.email){
-            if(errors.password){
-                setPasswordError(errors.password)
+        if (errors.password || errors.email) {
+            if (errors.password) {
+                setPasswordError(errors.password);
             }
-            if(errors.email){
-                setEmailError(errors.email)
+            if (errors.email) {
+                setEmailError(errors.email);
             }
             return;
         }
@@ -47,7 +48,7 @@ function LoginWrapper() {
             const user = {
                 _id: respone.data._id,
                 email: respone.data.email,
-                username: respone.data.phone,
+                username: respone.data.name,
                 auth: true,
             };
             console.log(user);
@@ -56,71 +57,65 @@ function LoginWrapper() {
         } else {
         }
     };
-    const handleBlurEmailCustom = (event) => {
-        setEmailChanging(false);
-        setEmailError(errors.email);
-        handleBlur(event);
-    };
-    const handleChangeEmailCustom = (event) => {
-        setEmailChanging(true);
+    const resetLogin = () => {
         setEmailError('');
-        handleChange(event);
-    };
-    const handleBlurPasswordCustom = (event) => {
-        setPasswordChanging(false);
-        setPasswordError(errors.password);
+        setPasswordError('');
+    }
+    const handleBlurCustom = (event, setChanging, setError, error) => {
+        setChanging(false);
+        setError(error);
         handleBlur(event);
     };
-    const handleChangePasswordCustom = (event) => {
-        setPasswordChanging(true);
-        setPasswordError('');
+    const handleChangeCustom = (event, setChanging, setError) => {
+        setChanging(true);
+        setError('');
         handleChange(event);
     };
+    useImperativeHandle(ref, () => ({
+        resetLogin
+    }))
     return (
-            <div className="w-[100%] h-[100%] bg-[white] rounded-[3px] border-[2px] border-[#777]">
-                <div className="pt-[32px]">
-                    <h1 className="text-center text-[2.2rem] font-medium">Đăng nhập</h1>
-                </div>
-                <div className="p-[40px] ">
-                    <TextInput
-                        title="Email"
-                        type="text"
-                        value={values.email}
-                        name="email"
-                        onBlur={handleBlurEmailCustom}
-                        onChange={handleChangeEmailCustom}
-                        placeholder="Eg.lequanphat@gmail.com"
-                        error={emailError ? 1 : undefined}
-                        errormessage={emailError}
-                        changing={emailChanging}
-                    />
-                    <TextInput
-                        title="Mật khẩu"
-                        type="password"
-                        value={values.password}
-                        name="password"
-                        onBlur={handleBlurPasswordCustom}
-                        onChange={handleChangePasswordCustom}
-                        placeholder="Nhập mật khẩu"
-                        error={passwordError ? 1 : undefined}
-                        errormessage={passwordError}
-                        changing={passwordChanging}
-                    />
-                    <Button content={'login'} fullwidth onClick={handleLogin} />
-                    <div className="text-[1.6rem] mt-[12px]">
-                        <span>Bạn chưa có tài khoản?</span>
-                        <span
-                            className="text-primary ml-[4px]"
-                            onClick={() => {
-                                navigate('/products');
-                            }}
-                        >
-                            Đăng kí
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <Wrapper
+            title="Đăng nhập"
+            footerDesc="Bạn chưa có tài khoản?"
+            footerButton="Đăng kí"
+            eventAction={props.handleShowRegister}
+        >
+            <TextInput
+                title="Email"
+                type="text"
+                value={values.email}
+                name="email"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setEmailChanging, setEmailError, errors.email);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setEmailChanging, setEmailError);
+                }}
+                placeholder="Eg.lequanphat@gmail.com"
+                error={emailError ? 1 : undefined}
+                errormessage={emailError}
+                changing={emailChanging}
+            />
+            <TextInput
+                title="Mật khẩu"
+                type="password"
+                value={values.password}
+                name="password"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setPasswordChanging, setPasswordError, errors.password);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setPasswordChanging, setPasswordError);
+                }}
+                placeholder="Nhập mật khẩu"
+                error={passwordError ? 1 : undefined}
+                errormessage={passwordError}
+                changing={passwordChanging}
+            />
+            <Button medium content={'login'} fullwidth onClick={handleLogin} />
+        </Wrapper>
     );
-}
+});
 
 export default LoginWrapper;

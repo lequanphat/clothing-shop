@@ -18,8 +18,8 @@ const RightShow = keyframes`
     }
     100% {
         width: 100%;
-        height: 100%;
-        top: 0;
+        height: 114%;
+        top: -7%;
         left: 0%;
         transform:translateY(0);
         z-index:1;

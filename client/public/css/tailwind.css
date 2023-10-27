@@ -880,6 +880,10 @@ h3{
   height: 40px;
 }
 
+.h-\[600px\]{
+  height: 600px;
+}
+
 .h-\[70\%\]{
   height: 70%;
 }
@@ -890,10 +894,6 @@ h3{
 
 .h-auto{
   height: auto;
-}
-
-.min-h-\[540px\]{
-  min-height: 540px;
 }
 
 .w-\[0\%\]{
@@ -960,12 +960,12 @@ h3{
   width: 500px;
 }
 
-.w-\[65\%\]{
-  width: 65%;
-}
-
 .w-\[70\%\]{
   width: 70%;
+}
+
+.w-\[72\%\]{
+  width: 72%;
 }
 
 .w-\[80px\]{
@@ -980,8 +980,8 @@ h3{
   width: 90%;
 }
 
-.w-\[72\%\]{
-  width: 72%;
+.w-\[100\%\1B0\]{
+  width: 100%ư;
 }
 
 .flex-1{
@@ -1093,6 +1093,10 @@ h3{
   border-radius: 9999px;
 }
 
+.rounded-\[10px\]{
+  border-radius: 10px;
+}
+
 .border-\[1px\]{
   border-width: 1px;
 }
@@ -1103,6 +1107,10 @@ h3{
 
 .border-\[8px\]{
   border-width: 8px;
+}
+
+.border-\[4px\]{
+  border-width: 4px;
 }
 
 .border-b-\[1px\]{
@@ -1232,6 +1240,19 @@ h3{
   background-color: rgb(243 198 15 / var(--tw-bg-opacity));
 }
 
+.bg-\[p\]{
+  background-color: p;
+}
+
+.bg-\[transparent\]{
+  background-color: transparent;
+}
+
+.bg-\[red\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-cover{
   background-size: cover;
 }
@@ -1250,6 +1271,10 @@ h3{
 
 .p-\[50px\]{
   padding: 50px;
+}
+
+.p-\[60px\]{
+  padding: 60px;
 }
 
 .p-\[6px\]{
@@ -1321,6 +1346,26 @@ h3{
   padding-bottom: 8px;
 }
 
+.px-\[8px\]{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.py-\[0px\]{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.py-\[1px\]{
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.px-\[4px\]{
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 .pb-\[20px\]{
   padding-bottom: 20px;
 }
@@ -1379,6 +1424,10 @@ h3{
 
 .text-\[1\.8rem\]{
   font-size: 1.8rem;
+}
+
+.text-\[1\.9rem\]{
+  font-size: 1.9rem;
 }
 
 .text-\[12px\]{
@@ -1529,6 +1578,14 @@ h3{
   color: rgb(243 198 15 / var(--tw-text-opacity));
 }
 
+.text-\[\]{
+  color: ;
+}
+
+.text-\[textSize\]{
+  color: textSize;
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -1562,6 +1619,10 @@ h3{
 .outline-none{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.outline{
+  outline-style: solid;
 }
 
 .transition-all{
@@ -1624,6 +1685,11 @@ html{
 
 .last\:border-0:last-child{
   border-width: 0px;
+}
+
+.last\:px-\[8px\]:last-child{
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .hover\:bg-\[\#ecf0f1\]:hover{

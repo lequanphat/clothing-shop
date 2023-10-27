@@ -20,7 +20,6 @@ const userSchema = mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true,
     },
     access_token: {
         type: String,

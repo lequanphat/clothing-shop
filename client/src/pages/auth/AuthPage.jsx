@@ -1,6 +1,6 @@
 import Login from './Login';
 import Register from './Register';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RightShow, RightHide, LeftHide, LeftShow } from './Animation';
 const LeftFrame = styled.div`
@@ -33,28 +33,36 @@ const SHOW = {
     REGISTER: 'register',
 };
 function AuthPage() {
+    const loginRef = useRef(null)
+    const registerRef = useRef(null)
     const [show, setShow] = useState(SHOW.LOGIN);
     const handleLoginShow = () => {
         if (show !== SHOW.LOGIN) {
             setShow(SHOW.LOGIN);
+            registerRef.current.resetRegister();
         }
     };
     const handleRegisterShow = () => {
         if (show !== SHOW.REGISTER) {
             setShow(SHOW.REGISTER);
+            console.log(loginRef.current);
+            loginRef.current.resetLogin();
         }
+
     };
 
     return (
         <div className=" relative w-[100vw] h-[100vh] bg-primary ">
-            <img src="/images/background.jpg" alt='img' className='absolute w-[72%] h-[100%] top-[0] left-[0] bg-[white]'></img>
+            <div  className='absolute w-[72%] h-[100%] top-[0] left-[0] bg-[white] p-[40px]'>
+                <img className='w-[100%] h-[100%] border-[4px] border-primary rounded-[10px]' src="/images/background.jpg" alt='img'/>
+            </div>
             {/* <LoginWrapper/> */}
-            <div  className="relative top-[50%] left-[55%]  translate-y-[-50%] w-[440px] min-h-[540px]">
+            <div  className="relative top-[50%] left-[55%]  translate-y-[-50%] w-[440px] h-[600px]">
                 <LeftFrame show={show === SHOW.REGISTER ? true : false} onClick={handleLoginShow}>
-                    <Login />
+                    <Login ref={loginRef} handleShowRegister={handleRegisterShow}/>
                 </LeftFrame>
                 <RightFrame color="red" show={show === SHOW.LOGIN ? true : false} onClick={handleRegisterShow}>
-                    <Register />
+                    <Register ref={registerRef} handleShowLogin={handleLoginShow}/>
                 </RightFrame>
             </div>
         </div>
