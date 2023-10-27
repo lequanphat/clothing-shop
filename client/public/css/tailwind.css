@@ -658,6 +658,22 @@ h3{
   top: 50%;
 }
 
+.top-\[60\%\]{
+  top: 60%;
+}
+
+.left-\[60\%\]{
+  left: 60%;
+}
+
+.left-\[40\%\]{
+  left: 40%;
+}
+
+.left-\[55\%\]{
+  left: 55%;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -1077,6 +1093,10 @@ h3{
   border-radius: 9999px;
 }
 
+.rounded-\[3px\]{
+  border-radius: 3px;
+}
+
 .border-\[1px\]{
   border-width: 1px;
 }
@@ -1112,6 +1132,16 @@ h3{
 .border-\[\#4cd137\]{
   --tw-border-opacity: 1;
   border-color: rgb(76 209 55 / var(--tw-border-opacity));
+}
+
+.border-\[\#777\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(119 119 119 / var(--tw-border-opacity));
+}
+
+.border-\[\#ccc\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 
 .border-\[\#ebebeb\]{
@@ -1191,11 +1221,6 @@ h3{
 .bg-\[black\]{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-\[rgb\(204\2c 204\2c 204\)\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 204 204 / var(--tw-bg-opacity));
 }
 
 .bg-\[rgba\(255\2c 0\2c 0\2c 0\.03\)\]{

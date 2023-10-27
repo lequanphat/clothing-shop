@@ -1,11 +1,11 @@
 import NullLayout from '../components/Layouts/NullLayout';
 import OtherLayout from '../components/Layouts/OtherLayout';
-import LoginPage from '../pages/auth/LoginPage';
 import BlogPage from '../pages/blogs/BlogPage';
 import HomePage from '../pages/home/HomePage';
 import NotFoundPage from '../pages/error/NotFoundPage';
 import OrderPage from '../pages/orders/OrderPage';
 import ProductPage from '../pages/products/ProductPage';
+import AuthPage from '../pages/auth/AuthPage';
 
 const publicRoutes = [
     {
@@ -24,7 +24,7 @@ const publicRoutes = [
     },
     {
         path: '/login',
-        page: LoginPage,
+        page: AuthPage,
         layout: NullLayout,
     },
     {

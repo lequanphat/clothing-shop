@@ -7,7 +7,7 @@ import { login } from '../../api/internal';
 import { setUser } from '../../store/userSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-function LoginPage() {
+function LoginWrapper() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [emailError, setEmailError] = useState('');
@@ -77,10 +77,9 @@ function LoginPage() {
         handleChange(event);
     };
     return (
-        <div className="fixed top-0 left-0 flex w-[100vw] h-[100vh] bg-[rgb(204,204,204)] items-center justify-center">
-            <div className="w-[440px] min-h-[540px] bg-[white] rounded-[2px]">
+            <div className="w-[100%] h-[100%] bg-[white] rounded-[3px] border-[2px] border-[#777]">
                 <div className="pt-[32px]">
-                    <h1 className="text-center text-[2.2rem] font-medium">Đăng kí</h1>
+                    <h1 className="text-center text-[2.2rem] font-medium">Đăng nhập</h1>
                 </div>
                 <div className="p-[40px] ">
                     <TextInput
@@ -121,8 +120,7 @@ function LoginPage() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
-export default LoginPage;
+export default LoginWrapper;
