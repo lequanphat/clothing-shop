@@ -622,6 +622,10 @@ h3{
   left: 50%;
 }
 
+.left-\[55\%\]{
+  left: 55%;
+}
+
 .right-\[-3px\]{
   right: -3px;
 }
@@ -656,22 +660,6 @@ h3{
 
 .top-\[50\%\]{
   top: 50%;
-}
-
-.top-\[60\%\]{
-  top: 60%;
-}
-
-.left-\[60\%\]{
-  left: 60%;
-}
-
-.left-\[40\%\]{
-  left: 40%;
-}
-
-.left-\[55\%\]{
-  left: 55%;
 }
 
 .z-10{
@@ -972,6 +960,10 @@ h3{
   width: 500px;
 }
 
+.w-\[65\%\]{
+  width: 65%;
+}
+
 .w-\[70\%\]{
   width: 70%;
 }
@@ -986,6 +978,10 @@ h3{
 
 .w-\[90\%\]{
   width: 90%;
+}
+
+.w-\[72\%\]{
+  width: 72%;
 }
 
 .flex-1{
@@ -1081,6 +1077,10 @@ h3{
   border-radius: 2px;
 }
 
+.rounded-\[3px\]{
+  border-radius: 3px;
+}
+
 .rounded-\[4px\]{
   border-radius: 4px;
 }
@@ -1091,10 +1091,6 @@ h3{
 
 .rounded-full{
   border-radius: 9999px;
-}
-
-.rounded-\[3px\]{
-  border-radius: 3px;
 }
 
 .border-\[1px\]{
@@ -1137,11 +1133,6 @@ h3{
 .border-\[\#777\]{
   --tw-border-opacity: 1;
   border-color: rgb(119 119 119 / var(--tw-border-opacity));
-}
-
-.border-\[\#ccc\]{
-  --tw-border-opacity: 1;
-  border-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 
 .border-\[\#ebebeb\]{

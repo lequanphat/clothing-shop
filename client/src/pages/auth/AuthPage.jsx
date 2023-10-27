@@ -46,9 +46,10 @@ function AuthPage() {
     };
 
     return (
-        <div className=" relative w-[100vw] h-[100vh] bg-[white] ">
+        <div className=" relative w-[100vw] h-[100vh] bg-primary ">
+            <img src="/images/background.jpg" alt='img' className='absolute w-[72%] h-[100%] top-[0] left-[0] bg-[white]'></img>
             {/* <LoginWrapper/> */}
-            <div className="relative top-[50%] left-[55%]  translate-y-[-50%] w-[440px] min-h-[540px]">
+            <div  className="relative top-[50%] left-[55%]  translate-y-[-50%] w-[440px] min-h-[540px]">
                 <LeftFrame show={show === SHOW.REGISTER ? true : false} onClick={handleLoginShow}>
                     <Login />
                 </LeftFrame>

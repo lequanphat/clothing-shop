@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import Button from '../../components/Button/Button';
 import TextInput from '../../components/TextInput/TextInput';
-import loginSchema from '../../schemas/loginSchema';
+import registerSchema from '../../schemas/registerSchema';
 import { useState } from 'react';
 import { login } from '../../api/internal';
 import { setUser } from '../../store/userSlice';
@@ -18,12 +18,14 @@ function Register() {
         initialValues: {
             email: '',
             password: '',
+            confirmPassword: '',
         },
         initialErrors:{
             email: 'Vui lòng điền trường này',
             password: 'Vui lòng điền trường này',
+            confirmPassword: 'Vui lòng điền trường này',
         },
-        validationSchema: loginSchema,
+        validationSchema: registerSchema,
     });
     const handleLogin = async () => {
         // validate
@@ -109,7 +111,7 @@ function Register() {
                     <TextInput
                         title="Xác nhận mật khẩu"
                         type="password"
-                        value={values.password}
+                        value={values.confirmPassword}
                         name="password"
                         onBlur={handleBlurPasswordCustom}
                         onChange={handleChangePasswordCustom}
