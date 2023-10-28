@@ -1,6 +1,6 @@
 import  clsx from 'clsx'
 
-function Button({ content, primary=true, outline, fullwidth, textSize, medium, small, ...props }) {
+function Button({ content, primary, outline, fullwidth, textSize, medium, small, ...props }) {
     const buttonClassnames = clsx(
         'text-[white] font-medium  rounded-[2px] uppercase  ',
         {
@@ -8,7 +8,7 @@ function Button({ content, primary=true, outline, fullwidth, textSize, medium, s
             'px-[8px] py-[4px] text-[1.3rem]': small,
             'w-[100%]': fullwidth,
             'bg-primary': primary,
-            'bg-[transparent] text-primary':outline,
+            'bg-[transparent] text-primary': outline,
         }
     )
     return (

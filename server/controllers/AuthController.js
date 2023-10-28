@@ -8,11 +8,11 @@ class AuthController {
             email: Joi.string()
                 .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
                 .message('Email không đúng định dạng!'),
-            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).message('Mật khẩu phải có ít nhất 3 kí tự!'),
         });
         const { email, password } = req.body;
         try {
-            const validation = await schema.validateAsync({ email, password }, { abortEarly: false });
+            const validation = await schema.validateAsync({ email, password });
             const respone = await UserService.login({ email, password });
             if (respone instanceof Error) {
                 next(respone);
@@ -28,18 +28,26 @@ class AuthController {
     // create
     async register(req, res, next) {
         const schema = Joi.object({
-            name: Joi.string().min(5).max(100).required(),
-            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+            name: Joi.string().min(5).max(30).required() .messages({
+                'string.empty': 'Tên không được để trống.',
+                'string.min': 'Tên phải có ít nhất {#limit} ký tự.',
+                'string.max': 'Tên không được vượt quá {#limit} ký tự.',
+              }),
+            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).message('Email không đúng dịnh dạng!'),
             password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
             confirmPassword: Joi.ref('password'),
             phone: Joi.string().pattern(new RegExp('^[0]+[0-9]{8,10}')),
         });
         const { name, email, password, confirmPassword, phone } = req.body;
+        const {error} = schema.validate({ name, email, password, confirmPassword, phone });
+        if(error){
+            return next(error);
+        }
         try {
-            const validation = await schema.validateAsync({ name, email, password, confirmPassword, phone });
+            
             const existedUser = await UserService.checkExistedUser({ email: email });
             if (existedUser) {
-                return next(new Error('email is already registered'));
+                return next(new Error('Email đã được đăng kí ở một tài khoản khác!'));
             }
             const respone = await UserService.createUser(req.body);
             return res.status(200).json(respone);
@@ -51,7 +59,7 @@ class AuthController {
         const { refreshToken } = req.cookies;
         try {
             const data = JWTService.verifyRefreshToken(refreshToken);
-            await UserService.updateUser(data.id, { access_token: '', refresh_token: '', name:"Nguyễn Cút Ki" });
+            await UserService.updateUser(data.id, { access_token: '', refresh_token: ''});
             res.clearCookie('accessToken');
             res.clearCookie('refreshToken');
             return res.status(200).json({ refreshToken, data });

@@ -2,15 +2,16 @@ import { useFormik } from 'formik';
 import Button from '../../components/Button/Button';
 import TextInput from '../../components/TextInput/TextInput';
 import loginSchema from '../../schemas/loginSchema';
-import { useState, useImperativeHandle , forwardRef } from 'react';
+import { useState, useImperativeHandle, forwardRef } from 'react';
 import { login } from '../../api/internal';
 import { setUser } from '../../store/userSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from './Wrapper';
-const LoginWrapper = forwardRef( ( props, ref) => {
+const LoginWrapper = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [loginError, setLoginError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [emailChanging, setEmailChanging] = useState(false);
@@ -42,38 +43,42 @@ const LoginWrapper = forwardRef( ( props, ref) => {
             email: values.email,
             password: values.password,
         };
-        const respone = await login(data);
-        console.log(respone);
-        if (respone?.status === 200) {
+        const response = await login(data);
+        console.log(response);
+        if (response?.status === 200) {
             const user = {
-                _id: respone.data._id,
-                email: respone.data.email,
-                username: respone.data.name,
+                _id: response.data._id,
+                email: response.data.email,
+                username: response.data.name,
                 auth: true,
             };
             console.log(user);
             dispatch(setUser(user));
             navigate('/');
         } else {
+            setLoginError(response.response.data.message);
         }
     };
     const resetLogin = () => {
         setEmailError('');
         setPasswordError('');
-    }
+        setLoginError('');
+    };
     const handleBlurCustom = (event, setChanging, setError, error) => {
         setChanging(false);
         setError(error);
+        setLoginError('');
         handleBlur(event);
     };
     const handleChangeCustom = (event, setChanging, setError) => {
         setChanging(true);
         setError('');
+        setLoginError('');
         handleChange(event);
     };
     useImperativeHandle(ref, () => ({
-        resetLogin
-    }))
+        resetLogin,
+    }));
     return (
         <Wrapper
             title="Đăng nhập"
@@ -113,7 +118,8 @@ const LoginWrapper = forwardRef( ( props, ref) => {
                 errormessage={passwordError}
                 changing={passwordChanging}
             />
-            <Button medium content={'login'} fullwidth onClick={handleLogin} />
+            <p className='text-[1.4rem] text-[red] mb-[4px]' >{loginError}</p>
+            <Button primary medium content={'login'} fullwidth onClick={handleLogin} />
         </Wrapper>
     );
 });

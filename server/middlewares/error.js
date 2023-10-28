@@ -1,25 +1,22 @@
-import Joy from 'joi'
+import Joy from 'joi';
 const errorHandler = (err, req, res, next) => {
     let status = 500;
     let data = {
         message: ['Internal Server Error'],
     };
-    if (err instanceof Joy.ValidationError){
+    if (err instanceof Joy.ValidationError) {
         status = 401;
-        data.message = []
-        err.details.forEach((err_item) => {
-            data.message.push(err_item.message)
-        })
-        return res.status(status).json(data)
+        data.message = err.details[0].message;
+        return res.status(status).json(data);
     }
-    if (err instanceof Error){
-        status = 402;
-        data.message = err.message
-        return res.status(status).json(data)
+    if (err instanceof Error) {
+        status = 403;
+        data.message = err.message;
+        return res.status(status).json(data);
     }
-    if(err.message){
-        data.message = err.message; 
+    if (err.message) {
+        data.message = err.message;
     }
-    return res.status(status).json(data)
+    return res.status(status).json(data);
 };
-export default errorHandler
+export default errorHandler;

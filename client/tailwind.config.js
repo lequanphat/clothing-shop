@@ -12,7 +12,7 @@ const config =  {
                 },
             },
             boxShadow:{
-                medium: '#4cd137 0px 1px 0px',
+                medium: 'rgba(0, 0, 0, 0.16) 0px 1px 4px;',
             }
 
         },
@@ -20,6 +20,8 @@ const config =  {
             
         },
         colors: {
+            white: 'white',
+            black: 'black',
             primary: '#f3c60f',
         },
         screens: {

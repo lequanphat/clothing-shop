@@ -41,20 +41,9 @@ function Slider() {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore
                 </p>
-                <Button content="xem ngay"/>
+                <Button primary medium content="xem ngay"/>
             </div>
-            {/* <div className="absolute top-[30%] right-[12%] w-[140px] h-[140px] bg-[#F79F1F] rounded-full p-[6px]">
-                <div className="border-dashed border-[white] border-[2px] rounded-full w-[100%] h-[100%]">
-                    <h1 className="text-[white] text-[3.2rem] font-medium text-center mt-[12px]">SALE</h1>
-                    <h1 className="text-[white] text-[3.2rem] font-medium text-center ">50%</h1>
-                </div>
-            </div> */}
-            {/* <div className="absolute top-[10%] right-[10%] w-[120px] h-[120px] bg-[#F79F1F] rounded-full p-[4px]">
-                <div className="border-dashed border-[white] border-[2px] rounded-full w-[100%] h-[100%]">
-                    <h1 className="text-[white] text-[2.8rem] font-medium text-center mt-[12px]">SALE</h1>
-                    <h1 className="text-[white] text-[2.8rem] font-medium text-center ">50%</h1>
-                </div>
-            </div> */}
+            
         </div>
     );
 }

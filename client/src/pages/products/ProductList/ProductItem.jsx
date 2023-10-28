@@ -1,5 +1,6 @@
 function ProductItem({image, name, price, category}) {
-    const url = '/images/'+image;
+    // const url = '/images/'+image;
+    const url = image;
     return (
         <div className="">
             <img className=" w-[100%] h-[240px] bg-[#f3f1ef]" src={url} alt="img" />

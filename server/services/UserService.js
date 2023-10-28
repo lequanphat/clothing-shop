@@ -82,10 +82,10 @@ class UserService {
                 user = await this.updateUser(user._doc?._id, {access_token, refresh_token})
                 return user;
             } else {
-                return new Error('Password is incorrect')
+                return new Error('Mật khẩu chưa đúng!')
             }
         } else {
-            return new Error('Account is not exists')
+            return new Error('Tài khoản không tồn tại!')
         }
     };
 }

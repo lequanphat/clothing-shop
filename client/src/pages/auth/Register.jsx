@@ -9,9 +9,10 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from './Wrapper';
 import { forwardRef, useImperativeHandle } from 'react';
-const Register = forwardRef(( props ,ref) => {
+const Register = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [registerError, setRegisterError] = useState('');
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -60,112 +61,115 @@ const Register = forwardRef(( props ,ref) => {
             confirmPassword: values.confirmPassword,
             phone: '0123123123',
         };
-        const respone = await register(data);
-        console.log(respone);
-        if (respone?.status === 200) {
+        const response = await register(data);
+        if (response?.status === 200) {
             const user = {
-                _id: respone.data._id,
-                email: respone.data.email,
-                username: respone.data.name,
+                _id: response.data._id,
+                email: response.data.email,
+                username: response.data.name,
                 auth: true,
             };
-            console.log(user);
             dispatch(setUser(user));
             navigate('/');
         } else {
+            setRegisterError(response.response.data.message);
         }
     };
     const handleBlurCustom = (event, setChanging, setError, error) => {
         setChanging(false);
         setError(error);
+        setRegisterError('');
         handleBlur(event);
     };
     const handleChangeCustom = (event, setChanging, setError) => {
         setChanging(true);
         setError('');
+        setRegisterError('');
         handleChange(event);
     };
     const resetRegister = () => {
-        setNameError('') 
-        setEmailError('') 
-        setPasswordError('') 
-        setConfirmPasswordError('') 
-    }
+        setNameError('');
+        setEmailError('');
+        setPasswordError('');
+        setConfirmPasswordError('');
+        setRegisterError('');
+    };
     useImperativeHandle(ref, () => ({
-        resetRegister
-    }))
+        resetRegister,
+    }));
     return (
-        <Wrapper title="Đăng kí" footerDesc="Bạn đã có tài khoản?" footerButton="Đăng nhập" eventAction={props.handleShowLogin}>
+        <Wrapper
+            title="Đăng kí"
+            footerDesc="Bạn đã có tài khoản?"
+            footerButton="Đăng nhập"
+            eventAction={props.handleShowLogin}
+        >
             <TextInput
-                    title="Họ và tên"
-                    type="text"
-                    value={values.name}
-                    name="name"
-                    onBlur={(e) => {
-                        handleBlurCustom(e, setNameChanging, setNameError, errors.name);
-                    }}
-                    onChange={(e) => {
-                        handleChangeCustom(e, setNameChanging, setNameError);
-                    }}
-                    placeholder="Nguyễn Văn A"
-                    error={nameError ? 1 : undefined}
-                    errormessage={nameError}
-                    changing={nameChanging}
-                />
-                <TextInput
-                    title="Email"
-                    type="text"
-                    value={values.email}
-                    name="email"
-                    onBlur={(e) => {
-                        handleBlurCustom(e, setEmailChanging, setEmailError, errors.email);
-                    }}
-                    onChange={(e) => {
-                        handleChangeCustom(e, setEmailChanging, setEmailError);
-                    }}
-                    placeholder="Eg.lequanphat@gmail.com"
-                    error={emailError ? 1 : undefined}
-                    errormessage={emailError}
-                    changing={emailChanging}
-                />
-                <TextInput
-                    title="Mật khẩu"
-                    type="password"
-                    value={values.password}
-                    name="password"
-                    onBlur={(e) => {
-                        handleBlurCustom(e, setPasswordChanging, setPasswordError, errors.password);
-                    }}
-                    onChange={(e) => {
-                        handleChangeCustom(e, setPasswordChanging, setPasswordError);
-                    }}
-                    placeholder="Nhập mật khẩu"
-                    error={passwordError ? 1 : undefined}
-                    errormessage={passwordError}
-                    changing={passwordChanging}
-                />
-                <TextInput
-                    title="Xác nhận mật khẩu"
-                    type="password"
-                    value={values.confirmPassword}
-                    name="confirmPassword"
-                    onBlur={(e) => {
-                        handleBlurCustom(
-                            e,
-                            setConfirmPasswordChanging,
-                            setConfirmPasswordError,
-                            errors.confirmPassword,
-                        );
-                    }}
-                    onChange={(e) => {
-                        handleChangeCustom(e, setConfirmPasswordChanging, setConfirmPasswordError);
-                    }}
-                    placeholder="Xác nhận mật khẩu"
-                    error={confirmPasswordError ? 1 : undefined}
-                    errormessage={confirmPasswordError}
-                    changing={confirmPasswordChanging}
-                />
-                <Button medium content={'login'} fullwidth onClick={handleLogin} />
+                title="Họ và tên"
+                type="text"
+                value={values.name}
+                name="name"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setNameChanging, setNameError, errors.name);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setNameChanging, setNameError);
+                }}
+                placeholder="Nguyễn Văn A"
+                error={nameError ? 1 : undefined}
+                errormessage={nameError}
+                changing={nameChanging}
+            />
+            <TextInput
+                title="Email"
+                type="text"
+                value={values.email}
+                name="email"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setEmailChanging, setEmailError, errors.email);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setEmailChanging, setEmailError);
+                }}
+                placeholder="Eg.lequanphat@gmail.com"
+                error={emailError ? 1 : undefined}
+                errormessage={emailError}
+                changing={emailChanging}
+            />
+            <TextInput
+                title="Mật khẩu"
+                type="password"
+                value={values.password}
+                name="password"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setPasswordChanging, setPasswordError, errors.password);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setPasswordChanging, setPasswordError);
+                }}
+                placeholder="Nhập mật khẩu"
+                error={passwordError ? 1 : undefined}
+                errormessage={passwordError}
+                changing={passwordChanging}
+            />
+            <TextInput
+                title="Xác nhận mật khẩu"
+                type="password"
+                value={values.confirmPassword}
+                name="confirmPassword"
+                onBlur={(e) => {
+                    handleBlurCustom(e, setConfirmPasswordChanging, setConfirmPasswordError, errors.confirmPassword);
+                }}
+                onChange={(e) => {
+                    handleChangeCustom(e, setConfirmPasswordChanging, setConfirmPasswordError);
+                }}
+                placeholder="Xác nhận mật khẩu"
+                error={confirmPasswordError ? 1 : undefined}
+                errormessage={confirmPasswordError}
+                changing={confirmPasswordChanging}
+            />
+            <p className="text-[1.4rem] text-[red] mb-[4px]">{registerError}</p>
+            <Button primary medium content={'login'} fullwidth onClick={handleLogin} />
         </Wrapper>
     );
 });

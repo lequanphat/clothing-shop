@@ -20,7 +20,7 @@ function DealOfWeek() {
                     <TimeItem value={12} unit="SECS"/>
                     
                 </div>
-                <Button content="xem ngay"/>
+                <Button primary medium content="xem ngay"/>
             </div>
             <div className="flex-1 flex items-center justify-center"><img className="w-[400px] h-[400px]" src="/images/men4.webp" alt="img" /></div>
         </div>
